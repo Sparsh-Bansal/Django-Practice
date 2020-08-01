@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TODO APP</title>
+</head>
+<body>
+	<form method="POST" action="/home/">
+		{{ form.as_p }}
+		{% csrf_token %}
+		<input type="submit" name="Create Task"  , value="sumbit">
+	</form>
+	{% for task in tasks %}
+		<div>
+			<p>{{task}}</p>
+			<a href="{% url 'todoapp:delete' task.id %}">Delete</a>
+			<a href="{% url 'todoapp:update' task.id %}">Update</a>
+		</div>
+	{% endfor %}
+</body>
+</html>
